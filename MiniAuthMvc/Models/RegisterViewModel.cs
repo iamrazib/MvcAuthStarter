@@ -15,6 +15,13 @@ namespace MiniAuthMvc.Models
         public string Email { get; set; } = "";
 
         [Required]
+        [Phone]
+        [StringLength(25)]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; } = "";
+
+
+        [Required]
         [DataType(DataType.Password)]
         [PasswordComplexity(MinLength = 8)]
         public string Password { get; set; } = "";

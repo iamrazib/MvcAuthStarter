@@ -49,7 +49,8 @@ namespace MiniAuthMvc.Controllers
             var user = new AppUser
             {
                 Username = username,
-                Email = email
+                Email = email,
+                PhoneNumber = model.PhoneNumber.Trim()
             };
 
             user.PasswordHash = _hasher.HashPassword(user, model.Password);
