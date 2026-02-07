@@ -16,5 +16,8 @@ namespace MiniAuthMvc.Models
         public string PasswordHash { get; set; } = "";
 
         public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
+
+        public string? PhoneNumber { get; set; }
+
     }
 }
