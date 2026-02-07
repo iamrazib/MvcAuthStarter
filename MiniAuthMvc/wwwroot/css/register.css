@@ -1,0 +1,34 @@
+﻿.password-rules-box {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+}
+
+.rule-list {
+    padding-left: 18px;
+}
+
+    .rule-list li {
+        color: #6b7280; /* default grey */
+        margin: 4px 0;
+        list-style: none;
+        position: relative;
+        padding-left: 22px;
+    }
+
+        .rule-list li::before {
+            content: "⬜";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .rule-list li.valid {
+            color: #198754; /* green */
+            font-weight: 600;
+        }
+
+            .rule-list li.valid::before {
+                content: "✅";
+            }

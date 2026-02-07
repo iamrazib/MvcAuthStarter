@@ -1,0 +1,76 @@
+﻿@model RegisterViewModel
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">Register</h4>
+            </div>
+
+            <div class="card-body">
+                <form asp-action="Register" method="post" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-2"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <label asp-for="Password" class="form-label"></label>
+                        <div class="input-group">
+                            <input asp-for="Password" class="form-control" id="Password" />
+                            <button class="btn btn-outline-secondary pw-toggle" type="button" data-target="Password">
+                                Show
+                            </button>
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="password-rules-box mb-3" aria-live="polite">
+                        <div class="small fw-semibold mb-1">Password must contain</div>
+                        <ul class="rule-list mb-0">
+                            <li id="rule-length">Minimum 8 characters</li>
+                            <li id="rule-upper">At least one UPPERCASE letter</li>
+                            <li id="rule-lower">At least one lowercase letter</li>
+                            <li id="rule-digit">At least one number</li>
+                            <li id="rule-special">At least one special character</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-2">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" class="form-control" id="ConfirmPassword" />
+                            <button class="btn btn-outline-secondary pw-toggle" type="button" data-target="ConfirmPassword">
+                                Show
+                            </button>
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        <div id="confirmMsg" class="small mt-1"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Create Account</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    Already have an account? <a asp-action="Login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/password-rules.js"></script>
+    <script src="~/js/password-toggle.js"></script>
+}
